@@ -132,6 +132,11 @@ export default function SettingsPage() {
           <p className="font-medium">{constitution.meta.fullTitle}</p>
           <p className="text-muted">{constitution.meta.subtitle}</p>
           <p className="text-muted">Edition: {constitution.meta.version}</p>
+          {constitution.meta.appCredit && (
+            <p className="mt-2 border-t pt-2 text-muted italic">
+              {constitution.meta.appCredit}
+            </p>
+          )}
         </div>
       </section>
     </div>

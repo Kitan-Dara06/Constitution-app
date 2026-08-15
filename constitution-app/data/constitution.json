@@ -3,7 +3,8 @@
     "title": "FUNAABSU Constitution",
     "fullTitle": "The 2019 Revised Constitution of FUNAABSU",
     "subtitle": "Federal University of Agriculture, Abeokuta Student Union",
-    "version": "2019 Revised Edition"
+    "version": "2019 Revised Edition",
+    "appCredit": "Built by the 32nd Assembly under the leadership of Dist. Sen. Agboola Aaliyah."
   },
   "preamble": {
     "title": "Preamble",
@@ -79,7 +80,7 @@
               ]
             },
             {
-              "label": "",
+              "label": "1",
               "title": "ORDINARY MEMBERS",
               "clauses": [
                 "Ordinary members of the Union",
@@ -94,7 +95,7 @@
               ]
             },
             {
-              "label": "",
+              "label": "2",
               "title": "ASSOCIATE MEMBER",
               "clauses": [
                 "Associate member of the Union;",
@@ -109,7 +110,7 @@
               ]
             },
             {
-              "label": "",
+              "label": "3",
               "title": "HONORARY MEMBERS",
               "clauses": [
                 "Honorary members of this union;",
@@ -120,7 +121,7 @@
               ]
             },
             {
-              "label": "",
+              "label": "4",
               "title": "LIFE MEMBERS",
               "clauses": [
                 "Life members of this union",
@@ -163,10 +164,9 @@
         {
           "number": 7,
           "title": "LIFE PATRON",
-          "text": "",
+          "text": "Life patron of this union;",
           "subsections": [],
           "clauses": [
-            "Life patron of this union;",
             "Shall be a traditional ruler of good repute or a philanthropist.",
             "Shall be entitled to a copy of the FUNAABSU constitution after payment of the prescribed fees.",
             "Shall possess all the qualities stated in article one S.10 of this constitution."
@@ -175,17 +175,29 @@
         {
           "number": 8,
           "title": "ADVISERS",
-          "text": "",
-          "subsections": [],
-          "clauses": [
-            "The Union shall have the following categories of advisers:",
-            "Legal advisers.",
-            "Academic advisers.",
-            "Other advisers who;",
-            "Shall advise the union from time to time",
-            "Shall be nominated by the FEC subjected to 2/3 majority approval of the Senate",
-            "Shall be removed in line with provisions of Article One S.10 of this constitution."
-          ]
+          "text": "The Union shall have the following categories of advisers:",
+          "subsections": [
+            {
+              "label": "A",
+              "title": "Legal advisers.",
+              "clauses": []
+            },
+            {
+              "label": "B",
+              "title": "Academic advisers.",
+              "clauses": []
+            },
+            {
+              "label": "C",
+              "title": "Other advisers who;",
+              "clauses": [
+                "Shall advise the union from time to time",
+                "Shall be nominated by the FEC subjected to 2/3 majority approval of the Senate",
+                "Shall be removed in line with provisions of Article One S.10 of this constitution."
+              ]
+            }
+          ],
+          "clauses": []
         },
         {
           "number": 9,
@@ -242,10 +254,10 @@
         {
           "number": 12,
           "title": "ORGANS OF THE UNION",
-          "text": "",
+          "text": "The organs of the union shall consist of;",
           "subsections": [],
           "clauses": [
-            "The organs of the union shall consist of;",
+            "",
             "The Executive shall be referred to as the FUNAABSU Executive Council (FEC)",
             "The Legislature shall be referred to as the Student Representative Assembly (SRA)",
             "The Judiciary shall be referred to as the FUNAABSU Judicial Council (FJC)",
@@ -273,10 +285,9 @@
         {
           "number": 14,
           "title": "COMPOSITION OF THE FUNAABSU EXECUTIVE COUNCIL",
-          "text": "",
+          "text": "The FUNAABSU Executive Council shall comprise the following:-",
           "subsections": [],
           "clauses": [
-            "The FUNAABSU Executive Council shall comprise the following:-",
             "President",
             "Vice-president",
             "General Secretary",
@@ -473,10 +484,9 @@
         {
           "number": 20,
           "title": "COMPOSITION",
-          "text": "",
+          "text": "The Hall Executive shall consist of the following:",
           "subsections": [],
           "clauses": [
-            "The Hall Executive shall consist of the following:",
             "Chairman/Chairperson",
             "Secretary",
             "Minister of Welfare",
@@ -528,7 +538,7 @@
               ]
             },
             {
-              "label": "",
+              "label": "D",
               "title": "MINISTER OF SPORTS",
               "clauses": [
                 "Shall co-ordinate and supervise all sporting activities of the Halls.",
@@ -539,7 +549,7 @@
               ]
             },
             {
-              "label": "",
+              "label": "E",
               "title": "MINISTER OF SOCIALS AND INFORMATION",
               "clauses": [
                 "Shall be responsible for all social activities of the Hall.",
@@ -555,7 +565,7 @@
               ]
             },
             {
-              "label": "",
+              "label": "F",
               "title": "MINISTER OF FINANCE",
               "clauses": [
                 "Shall keep proper records of all financial matters of the Hall.",
@@ -569,7 +579,7 @@
               ]
             },
             {
-              "label": "",
+              "label": "G",
               "title": "DIRECTOR OF TREASURY",
               "clauses": [
                 "Shall pay all money handed to him by the Minister of Finance not later than Forty-eight working hours.",
@@ -609,13 +619,22 @@
             {
               "label": "",
               "title": "FUNCTIONS OF THE HALL REPRESENTATIVES.",
+              "clauses": []
+            },
+            {
+              "label": "",
+              "title": "Mayor",
               "clauses": [
-                "Mayor",
                 "Shall operate in compliance to the Hall Executives",
                 "Shall be responsible for maintenance of peace and order in each hall.",
                 "Shall notify the welfare director of faulty electrical appliance in the Halls",
-                "Shall perform any other function as may be delegated by the Hall Chairman or Chairperson.",
-                "Deputy Mayor.",
+                "Shall perform any other function as may be delegated by the Hall Chairman or Chairperson."
+              ]
+            },
+            {
+              "label": "",
+              "title": "Deputy Mayor.",
+              "clauses": [
                 "Shall deputize the mayor in performing his duties.",
                 "Shall perform any other function as may be delegated by the Hall Chairman or Chairperson."
               ]
@@ -636,15 +655,24 @@
           "number": 23,
           "title": "COMPOSITION",
           "text": "",
-          "subsections": [],
-          "clauses": [
-            "Each committees shall consist of five(5) members headed by a Chairman and shall have a Secretary.",
-            "The committee shall consist of the following;",
-            "Committees on Welfare.",
-            "Committees on Information.",
-            "Committees on Sports.",
-            "Committees on Hall week."
-          ]
+          "subsections": [
+            {
+              "label": "",
+              "title": "Each committees shall consist of five(5) members headed by a Chairman and shall have a Secretary.",
+              "clauses": []
+            },
+            {
+              "label": "",
+              "title": "The committee shall consist of the following;",
+              "clauses": [
+                "Committees on Welfare.",
+                "Committees on Information.",
+                "Committees on Sports.",
+                "Committees on Hall week."
+              ]
+            }
+          ],
+          "clauses": []
         },
         {
           "number": 24,
@@ -704,18 +732,17 @@
         {
           "number": 25,
           "title": "DISSOLUTION OF A COMMITTEE",
-          "text": "",
+          "text": "A committee shall be dissolved;",
           "subsections": [],
           "clauses": [
-            "A committee shall be dissolved;",
             "At the discretion of the Hall Chairman subject to 2/3 majority approval of Hall Executives.",
             "On recommendation of the respective Executive officers to the Hall executives subject to 2/3 majority approval."
           ]
         },
         {
           "number": 26,
-          "title": "",
-          "text": "COMMITTEE’S FORUM",
+          "title": "COMMITTEE’S FORUM",
+          "text": "",
           "subsections": [],
           "clauses": [
             "The Committee’s forum shall serve as a means of interaction between the Hall executives and Heads of the committees with a view to analyze the extent of progress, challenges and way forward on matters affecting the committees."
@@ -724,10 +751,9 @@
         {
           "number": 27,
           "title": "COMPOSITION",
-          "text": "",
+          "text": "The composition of Committee’s Forum shall be as follows;",
           "subsections": [],
           "clauses": [
-            "The composition of Committee’s Forum shall be as follows;",
             "All Heads of Committee",
             "All Secretaries.",
             "All members of the Hall Executive",
@@ -737,10 +763,9 @@
         {
           "number": 28,
           "title": "FUNCTIONS",
-          "text": "",
+          "text": "The Committee’s forum shall;",
           "subsections": [],
           "clauses": [
-            "The Committee’s forum shall;",
             "Meet from time to discuss the extent of progress and challenges of each committee with a view to proffering solutions",
             "Meet from time to time to assess the execution of the Hall’s budget.",
             "Regulate the activities of the Committees",
@@ -760,10 +785,9 @@
         {
           "number": 29,
           "title": "COMPOSITION",
-          "text": "",
+          "text": "The Student Representatives Assembly (SRA) shall consist of;",
           "subsections": [],
           "clauses": [
-            "The Student Representatives Assembly (SRA) shall consist of;",
             "Two elected representatives from each of the respective Departments in the University save COLVET.",
             "Four elected representatives from COLVET only",
             "A representative each of International students and physically challenged students",
@@ -797,10 +821,9 @@
         {
           "number": 31,
           "title": "OFFICERS OF THE SENATE",
-          "text": "",
+          "text": "The Senate shall have the following officers to direct its affairs;",
           "subsections": [],
           "clauses": [
-            "The Senate shall have the following officers to direct its affairs;",
             "Senate President",
             "Deputy Senate President",
             "Clerk of the Senate",
@@ -848,8 +871,8 @@
               ]
             },
             {
-              "label": "",
-              "title": "C    CLERK",
+              "label": "C",
+              "title": "CLERK",
               "clauses": [
                 "Shall perform the following function in consultation with the Senate",
                 "Issue notice of sittings",
@@ -1032,8 +1055,8 @@
           "text": "",
           "subsections": [],
           "clauses": [
-            "i. The quorum of the Senate sittings shall be 1/3 majority of the members",
-            "ii. If a quorum is not formed within half an hour (30 minutes) of the time stipulated for a sitting of the Senate, the Senate President or any other person acting on his behalf may summarily declare such a sitting postponed"
+            "The quorum of the Senate sittings shall be 1/3 majority of the members",
+            "If a quorum is not formed within half an hour (30 minutes) of the time stipulated for a sitting of the Senate, the Senate President or any other person acting on his behalf may summarily declare such a sitting postponed"
           ]
         },
         {
@@ -1042,8 +1065,8 @@
           "text": "",
           "subsections": [],
           "clauses": [
-            "i.Every member except the Senate President shall be eligible to vote",
-            "ii.Voting shall be by raising of hands except otherwise decided by a simple majority or             by secret ballot if the Senate so decides",
+            "Every member except the Senate President shall be eligible to vote",
+            "Voting shall be by raising of hands except otherwise decided by a simple majority or  by secret ballot if the Senate so decides",
             "At the instance of a tie at the end of an election exercise, there shall be a second voting immediately, if the votes are still equal, the Senate shall go on recess and on resumption following another tie, the Senate President shall cast the deciding vote."
           ]
         },
@@ -1059,59 +1082,14 @@
             "Preference shall be given to the motion/amendments first submitted where more than one motion/amendments are successively presented on any issue. Discussions on subsequent amendment or motion shall then follow.",
             "Before a motion/ amendment is closed for debate, the mover of the original motion/amendment shall have the right to reply and after this. No other discussion on the topic shall be allowed.",
             "All motions/ amendments under consideration as stated by the Senate President cannot be withdrawn without the consent of the mover.",
-            "In the course of discussion of a motion/ amendment, the following motions can be accepted in the order listed below;",
-            "a.Motion of no confidence on the Senate President",
-            "b.Motion withdrawing another motion.",
-            "c.Motion for adjournment.",
-            "d.Motion to revert the decision of the Senate President on the basis of 2/3 majority of members present.",
-            "e.Motion to close a debate.",
-            "f.Motion to ask question(s)",
-            "g.Motion to limit or extend a debate.",
-            "h.Motion for additional information.",
-            "i.Motion to refer an issue to a committee.",
-            "j.Motion to suspend standing order on the basis of simple majority of members present.",
-            "k.Motion for recess",
-            "viii. When a motion/ amendment has been put forward, the Senate President will make a list of the members who wish to speak for or against the motion/amendment. Such list shall be exhausted and closed after such speaker has been given five (5) minutes for his presentation. The principle of egalitarianism of debate shall be maintained during any discussion",
-            "ix. The Senate President shall recognize those wishing to speak in the following order of preference;",
-            "a.Point of order",
-            "b.Point of information",
-            "c.Point of observation",
-            "x.A point of order when raised must be heard at all times and shall deal with such matters as;",
-            "Indecorum",
-            "Intention to refer to standing orders and/or a clause of the constitution.",
-            "Violation of standing order(s)",
-            "Introduction of matter not relevant of the question under consideration",
-            "Digression from the matter under discussion",
-            "Willful disruption of business in the Senate",
-            "xi. Amendments shall be either by deleting or adding some words remove part/all of a sentence.",
-            "xii. When motion for closure has been moved and adopted, the Senate President shall make a list of those who want to speak on the condition that they have not spoken on the matter already. And five (5) minutes shall be allocated to each contributor. After everyone has been given the opportunity to speak once The Senate President shall be allowed a second chance of three (3) minutes duration and each contributor shall limit himself to answering questions or arguments raised in the course of the debate.",
-            "xiii. Proposal or motion for reconsideration of a motion previously adopted, shall be in order subject to 2/3 majority approval.",
-            "A resolution previously adopted may be reverted by majority vote provided that the Senate agrees to consider the matter.",
-            "SECTION 43:                        BILL PASSAGE",
-            "Stage 1",
-            "The first stage shall be the identification of the need for a Bill.",
-            "A Bill can be initiated by any ordinary member of the Union but only a Senator shall introduce it on the floor of the senate.",
-            "A Bill shall be in three categories: Executive, Member and Private Bills.",
-            "Stage 2: The second stage shall be divided into five",
-            "1st Reading: The Senate is generally introduced to the new proposed act which at this stage is called a Bill.",
-            "No debate on the Bill shall be done on the floor of the Senate at the first reading of the bill",
-            "The Bill shall be read and moved to the next stage if passed for second reading by The Senate or rejected if it fails to be passed",
-            "2nd Reading:",
-            "Only Bills passed at first reading shall be considered for second reading on the floor of The Senate.",
-            "Each clause of the Bill shall be deliberated at this stage of the Bill passage at the floor of the Senate.",
-            "Clauses contained in the Bill may be rephrased and amended by the Senate at this stage of the Bill passage.",
-            "The Bill shall move to the next stage if passed by the Senate and stand rejected if it fails to be passed by the Senate at this stage.",
-            "Committee stage:",
-            "Two committees of the Senate (Committees on Information & Resolution and Special Duties) shall deliberate on a Bill passed by the Senate at second reading, examines it more critically at this stage of the Bill passage.",
-            "Only the Ad-hoc Committee on Appropriations shall deliberate on an Appropriation Bill passed by the Senate at second reading, examines it more critically at this stage of the Bill passage.",
-            "The committees shall organize and conduct a Public hearing on the Bill at a date to be communicated by The Senate through the Clerk of the Senate.",
-            "3rd Reading: After the report of the Committee and deliberation of the Committee of the whole Senate, a motion may be moved that the bill be read the third time either immediately or at a later date and passed after the Senate has certified the contents of the clean copy to be accurate.",
-            "Assent by the President: Only bills that scaled through all the above stages of Bill passage shall be transmitted to the President for assent.",
-            "A bill shall become a law upon the accent of the President to such Bill.",
-            "The President shall have a maximum of ten (10) working days (starting from the date of receipt of such bill) to sign a bill into law or send back to the Senate for amendment.",
-            "The Senate shall be empowered to overrule the veto of the President if, after 10 working days, the President refuses to sign and assent the Bill and the Senate is not in support of the Presidential amendments.",
-            "The Senate is empowered to recall the bill and re-pass it.",
-            "Should the Presidential assent be vetoed by two-third majority vote in the Senate, the Bill automatically becomes a law even without the signature of the President."
+            "In the course of discussion of a motion/ amendment, the following motions can be accepted in the order listed below;\na.\tMotion of no confidence on the Senate President\nb.\tMotion withdrawing another motion.\nc.\tMotion for adjournment.\nd.\tMotion to revert the decision of the Senate President on the basis of 2/3 majority of members present.\ne.\tMotion to close a debate.\nf.\tMotion to ask question(s)Motion to close a debate.\ng.\tMotion to limit or extend a debate.\nh.\tMotion for additional information.\ni.\tMotion to refer an issue to a committee.\nj.\tMotion to suspend standing order on the basis of simple majority of members present.\nk.\tMotion for recess",
+            " When a motion/ amendment has been put forward, the Senate President will make a list of the members who wish to speak for or against the motion/amendment. Such list shall be exhausted and closed after such speaker has been given five (5) minutes for his presentation. The principle of egalitarianism of debate shall be maintained during any discussion",
+            "The Senate President shall recognize those wishing to speak in the following order of preference;\na.\tPoint of order\nb.\tPoint of information\nc.\tPoint of observation",
+            "A point of order when raised must be heard at all times and shall deal with such matters as;\n    a. Indecorum\n    b. Intention to refer to standing orders and/or a clause of the constitution.\n    c. Violation of standing order(s)\n    d. Introduction of matter not relevant of the question under consideration\n    e. Digression from the matter under discussion\n    f. Willful disruption of business in the Senate",
+            "Amendments shall be either by deleting or adding some words remove part/all of a sentence",
+            " When motion for closure has been moved and adopted, the Senate President shall make a list of those who want to speak on the condition that they have not spoken on the matter already. And five (5) minutes shall be allocated to each contributor. After everyone has been given the opportunity to speak once The Senate President shall be allowed a second chance of three (3) minutes duration and each contributor shall limit himself to answering questions or arguments raised in the course of the debate.",
+            "Proposal or motion for reconsideration of a motion previously adopted, shall be in order subject to 2/3 majority approval.",
+            "A resolution previously adopted may be reverted by majority vote provided that the Senate agrees to consider the matter."
           ]
         }
       ]
@@ -1121,12 +1099,7 @@
       "word": "FIVE",
       "title": "CODE OF CONDUCT FOR SENATE MEMBERS",
       "intro": [
-        "In furtherance of profound constitutional functions of the Senate, Federal University of Agriculture Abeokuta, Student Union and without prejudice to the provisions of this constitution, the Senate do hereby make and propose to ourselves the following rules.",
-        "RULE 1: Official language",
-        "RULE 2: Mode of Dressing",
-        "RULE 3: Mode of attendance of Senate sittings",
-        "RULE 4: Conduct of members",
-        "RULE 5: Order in the Senate"
+        "In furtherance of profound constitutional functions of the Senate, Federal University of Agriculture Abeokuta, Student Union and without prejudice to the provisions of this constitution, the Senate do hereby make and propose to ourselves the following rules.\n\nRULE 1: Official language\n\nRULE 2: Mode of Dressing\n\nRULE 3: Mode of attendance of Senate sittings\n\nRULE 4: Conduct of members\n\nRULE 5: Order in the Senate"
       ],
       "sections": [
         {
@@ -1209,26 +1182,28 @@
         },
         {
           "number": 54,
-          "title": "ATHE STUDENT HIGH COURT",
+          "title": "A",
           "text": "",
           "subsections": [
             {
-              "label": "",
-              "title": "BTHE SUPREME STUDENT COURT",
+              "label": "A",
+              "title": " THE STUDENT HIGH COURT",
+              "clauses": [
+                "This Court shall have the power to try case(s) brought before it. It is also empowered to try person(s), Officer(s), body/bodies, Club/societies affiliated/non-affiliated with the Union charged before it. It shall uphold social justice and shall defend the Constitution.",
+                "Try and determine cases of redress filed by registered member(s) against an individual or group(s).",
+                "Try and determine cases of violation of the constitution such as\n  a. Official corruption and/misuse of power on the part of present/past officers(s) of the union or committees/commissions.\n   b. Acts of indiscipline on the part of registered members of the Union.\n   c.  Violation of the provision(s) of the constitution.",
+                "Try all matters referred to it by the FEC, Senate, the halls of residence executive cabinet, academic/indigenous associations on campus or any of the Union committee/commissions, of the affiliated clubs and associations."
+              ]
+            },
+            {
+              "label": "B",
+              "title": "THE SUPREME STUDENT COURT",
               "clauses": [
                 "Shall be the highest court of the Union and shall be headed by the Chief judge of the Students' Union. The Supreme Student Court shall hear only appealed cases after the case must have been previously decided by the Student High Court. Only cases appealed not later than forty eight working hours after determination at the Student High Court shall be heard at the Supreme Student Court. It shall have the power to issue ex parte orders and court injunctions"
               ]
             }
           ],
-          "clauses": [
-            "This Court shall have the power to try case(s) brought before it. It is also empowered to try person(s), Officer(s), body/bodies, Club/societies affiliated/non-affiliated with the Union charged before it. It shall uphold social justice and shall defend the Constitution.",
-            "Try and determine cases of redress filed by registered member(s) against an individual or group(s).",
-            "Try and determine cases of violation of the constitution such as",
-            "Official corruption and/misuse of power on the part of present/past officers(s) of the union or committees/commissions.",
-            "Acts of indiscipline on the part of registered members of the Union.",
-            "Violation of the provision(s) of the constitution.",
-            "Try all matters referred to it by the FEC, Senate, the halls of residence executive cabinet, academic/indigenous associations on campus or any of the Union committee/commissions, of the affiliated clubs and associations."
-          ]
+          "clauses": []
         },
         {
           "number": 55,
@@ -1262,7 +1237,7 @@
               "label": "B",
               "title": "NON PRINCIPAL OFFICERS",
               "clauses": [
-                "`Student Barristers"
+                "Student Barristers"
               ]
             }
           ],
@@ -1274,8 +1249,8 @@
           "text": "",
           "subsections": [
             {
-              "label": "",
-              "title": "ACHIEF JUDGE",
+              "label": "A",
+              "title": "CHIEF JUDGE",
               "clauses": [
                 "Shall be the head of the FUNAABSU Judicial Council (FJC)",
                 "Shall preside over the meeting of the FJC",
@@ -1288,8 +1263,8 @@
               ]
             },
             {
-              "label": "",
-              "title": "BJUSTICES OF THE STUDENT HIGH COURT",
+              "label": "B",
+              "title": "JUSTICES OF THE STUDENT HIGH COURT",
               "clauses": [
                 "There shall be two Justices of the Student High Court, they shall be appointed alongside with the other principal officers of the FJC. Their functions shall include the following",
                 "Shall have the right to listen to the testimony and evidence provided by the prosecution or defense.",
@@ -1300,8 +1275,8 @@
               ]
             },
             {
-              "label": "",
-              "title": "CTHE COURT REGISTRAR",
+              "label": "C",
+              "title": "THE COURT REGISTRAR",
               "clauses": [
                 "Shall be the administrative officer of the FJC",
                 "Shall take charge of all correspondence of the FUNAABSU Judiciary Council",
@@ -1313,8 +1288,8 @@
               ]
             },
             {
-              "label": "",
-              "title": "DCOURT BAILIFF",
+              "label": "D",
+              "title": "COURT BAILIFF",
               "clauses": [
                 "Shall be a member of the FJC.",
                 "Shall act in the absence of the Court Registrar.",
@@ -1324,8 +1299,8 @@
               ]
             },
             {
-              "label": "",
-              "title": "ECOURT ORDERLY",
+              "label": "E",
+              "title": "COURT ORDERLY",
               "clauses": [
                 "Shall be responsible for the maintenance of security in the court during proceedings.",
                 "Shall be vested with the power to excuse any member disturbing the peace and progress of the court proceedings.",
@@ -1334,8 +1309,8 @@
               ]
             },
             {
-              "label": "",
-              "title": "FJUSTICES OF THE SUPREME STUDENT COURT",
+              "label": "F",
+              "title": "JUSTICES OF THE SUPREME STUDENT COURT",
               "clauses": [
                 "There shall be Three Justices of the Supreme Student High Court aside the Chief judge who shall head the Supreme Student Court.",
                 "Each of the justices must have served in either the SRA or the FJC to qualify for an appointment as a Justice of the Supreme Student Court.",
@@ -1349,8 +1324,8 @@
               ]
             },
             {
-              "label": "",
-              "title": "GSTUDENTS BARRISTERS",
+              "label": "G",
+              "title": "STUDENTS BARRISTERS",
               "clauses": [
                 "Shall act either as prosecuting or defense counsel on any matter(s) brought before the student court.",
                 "Shall be recommended to the principal officers of the FJC by 2/3 majority of executives of each departmental Association on campus, the names recommended shall be subjected to final ratification cum approval of  2/3 majority of a Senate sitting.",
@@ -1366,10 +1341,9 @@
         {
           "number": 58,
           "title": "POWER AND FUNCTIONS OF THE FUNAABSU JUDICIARY COUNCIL",
-          "text": "",
+          "text": "The FUNAABSU Judiciary Council shall;",
           "subsections": [],
           "clauses": [
-            "The FUNAABSU Judiciary Council shall;",
             "Give final interpretation of the provisions of this constitution.",
             "Shall have the power to investigate any Justice/principal officers of the FJC on abuse of office, gross indiscipline, misconduct on the path of any member of the jury, any make its report\\recommendation to the Senate through the legal commission with a view to maintain discipline.",
             "Shall have the power to issue directives to the Justice with a view to uphold the standard of the judiciary.",
@@ -1406,45 +1380,37 @@
       "word": "SEVEN",
       "title": "JOINT CONSULTATIVE ASSEMBLY AND THE CONGRESS",
       "intro": [
-        "ATHE JOINT CONSULTATIVE ASSEMBLY",
+        "A.  THE JOINT CONSULTATIVE ASSEMBLY",
         "The Joint Consultative Assembly shall serve as a forum for all the organs of the Union to come together and deliberate on crucial issues affecting the union. The JCA shall meet as occasion demands but shall meet at least once in a semester."
       ],
       "sections": [
         {
           "number": 60,
           "title": "COMPOSITION",
-          "text": "",
+          "text": "The JCA shall comprise of",
           "subsections": [],
           "clauses": [
-            "The JCA shall comprise of",
             "Members of the FEC",
-            "Members of the Senate",
-            "Members of the FJC"
+            "Members of the Senate"
           ]
         },
         {
           "number": 61,
           "title": "POWERS AND FUNCTIONS",
-          "text": "",
+          "text": "The Joint Consultative Assembly shall;",
           "subsections": [],
           "clauses": [
-            "The Joint Consultative Assembly shall;",
             "Deliberate and decide on issues not entrenched in this constitution but of interest to the union.",
             "Exercise the power of prerogative of mercy.",
-            "Shall declare a state of emergency in the union as may be required."
+            "Shall declare a state of emergency in the union as may be required.",
+            ""
           ]
         },
         {
           "number": 62,
           "title": "STANDING ORDER",
           "text": "",
-          "subsections": [
-            {
-              "label": "",
-              "title": "BTHE CONGRESS",
-              "clauses": []
-            }
-          ],
+          "subsections": [],
           "clauses": [
             "The Union President shall be the Chairman of the J.C.A while the Union General Secretary shall serve as the Secretary",
             "Meeting of the J.C.A shall be convened by the Union President as follows;",
@@ -1458,8 +1424,8 @@
         },
         {
           "number": 63,
-          "title": "COMPOSITION",
-          "text": "",
+          "title": "B. CONGRESS",
+          "text": "COMPOSITION",
           "subsections": [],
           "clauses": [
             "The General Assembly of the Voluntary members of the Union shall herein be called ‘The Congress’",
@@ -1497,94 +1463,121 @@
             "Each committee shall consist of five members headed by a chairman who shall be responsible to the relevant Director or Secretary.",
             "The FEC shall be empowered to increase the membership of the committees when conditioned by event (s)",
             "Each appointment shall be sent to the Senate for notification cum ratification.",
-            "The Committees shall consist of the following ;",
-            "Committee on Socials and Clubs",
-            "Committee on Finance and Vocational Employment",
-            "Committee on Welfare and Business",
-            "Committee on Information and Research",
-            "Committee on Sports",
-            "Committee on Special Duties",
-            "Committee on Assets Management"
+            "The Committees shall consist of the following ;\n    a. Committee on Socials and Clubs\n    b. Committee on Finance and Vocational Employment\n    c. Committee on Welfare and Business\n    d. Committee on Information and Research\n    e. Committee on Sports\n    f. Committee on Special Duties\n    g. Committee on Assets Management"
           ]
         },
         {
           "number": 66,
           "title": "FUNCTION OF THE COMMITTEES",
           "text": "",
-          "subsections": [],
-          "clauses": [
-            "a.       COMMITTEE ON SOCIALS AND CLUBS",
-            "Shall be responsible to the Director of socials",
-            "Shall in collaboration with the Director of social arrange for all social activities of the union as may be approved by the FEC.",
-            "Shall keep proper account of proceed arising from social activities of the union and hand over such proceeds to the Director of finance not later than Forty- Eight (48) working hours after such functions.",
-            "Shall have the right to reject, withdraw, withhold the affiliation of any club/society subject to ratification by the FEC.",
-            "Shall recommend club(s) seeking loans to the FEC.",
-            "Shall recommend any disciplinary action(s) against any affiliation club operating outside its aims and objectives as entrenched in the constitution of such club(s) to the FEC.",
-            "Shall from time to time ensure that each affiliated club/society pays prescribed dues to the Union.",
-            "Shall perform any other function(s) as may be directed by the Director of Socials.",
-            "Shall perform any other function(s) as may be directed by the Provision(s) of this constitution.",
-            "b. COMMITTEE ON FINANCE",
-            "Shall be responsible to the Director of Finance",
-            "Shall give financial advice to the Union",
-            "Shall help the Union in collection of member’s annual dues.",
-            "Shall perform any other function(s) as may be directed by the provision(s) of this constitution.",
-            "c. COMMITTEE ON WELFARE AND BUSINESS",
-            "Shall be responsible to the Director of Welfare and Business.",
-            "Shall liaise with the Students Affairs Division of the University to ensure that members get fair catering services.",
-            "Shall look for vacation jobs for members",
-            "Shall maintain regular contact with such companies/industries that are likely to provide vacation job for Union member.",
-            "Shall secure permanent employment for Union member if such employment is available.",
-            "Shall be responsible for all matters pertaining to the Health Union members.",
-            "Shall supervise and co-ordinate the affairs of the Union butteries and cafeteria.",
-            "Shall handle all other commercial venture of the Union may be directed by the FEC.",
-            "Shall perform any other function(s) as may be directed Director of Welfare and Business.",
-            "Shall perform any other function(s) as may be directed by provision(s) of this constitution.",
-            "d. COMMITTEE ON INFORMATION AND RESEARCH",
-            "Shall be responsible to the Public Relations Officer",
-            "Shall be responsible for the co-ordination and publication any Union’s magazine, Newsletters, Hand-bills and any of mode of communication in line with University laws and regulations.",
-            "Shall monitor the activities of the Union in general for appropriate information dissemination.",
-            "Shall carry out a thorough investigation on any information available to it",
-            "Shall be responsible for the Co-ordination and supervision the Union’s library.",
-            "Shall liaise with the University Librarian on all matters relating to the Union’s library.",
-            "Shall carry out research on all aspects of academic discipline",
-            "Shall be responsible for the collection and preservation of research materials e .g journals",
-            "Shall liaise with research institutes for research advice and materials through the Research Centre of the University.",
-            "Shall organize academic seminars, symposia, lectures and workshops periodically.",
-            "Shall liaise with the Public Relations Unit of the University for necessary materials to aid its functions e.g. FUNAAB News bulletin, Academic publications, e. t. c",
-            "Shall perform any other function(s) as may be directed by the Director of Public Relations.",
-            "Shall perform any other function(s) as may be directed by the provision(s) of this constitution.",
-            "e. COMMITTEE ON SPORTS",
-            "Shall be responsible to the Sports Secretary.",
-            "Shall in conjunction with the Sports Secretary co-ordinate and supervise all sporting activities of the Union.",
-            "Shall from time to time liaise with institution(s) or body (ies) for Sports competitions.",
-            "Shall in conjunction with the Sports Secretary take proper care of all sporting materials.",
-            "Shall perform any other function(s) as may be directed by the Sports Secretary",
-            "Shall perform any other function(s) as may be directed by the Provision(s) of this constitution.",
-            "f. COMMITTEE ON SPECIAL DUTIES",
-            "Shall be composed of 2/3 membership of the FEC",
-            "Shall be responsible to the Office of the President",
-            "Shall be responsible for the receipt of petition arising from maltreatment of any student(s).",
-            "Shall be responsible for the welfare, promotion and discipline of the Union staffers.",
-            "Shall receive applications, forward name and recommend to the FEC",
-            "Shall perform any other function(s) as may be directed by the President.",
-            "Shall perform any other function(s) as may be directed by the provision(s) of this constitution.",
-            "g.        COMMITTEE ON ASSETS MANAGEMENT",
-            "There shall be an Assets Management Committee to be ratified by two-third (2/3) majority of members of the Senate.",
-            "The membership of the committee which shall comprise of three representatives each from all the organs of the Union.",
-            "shall be held responsible for all assets under its watch.",
-            "The committee shall have the power to determine its Chairman and Secretary",
-            "Shall seek to acquire new assets for the Union from time to time.",
-            "The President and the Chairman of this committee shall represent the Union at SUBMAC meetings.",
-            "The report of SUBMAC meetings shall be presented to the Senate as the needs may arise by the Chairman of the committee."
-          ]
+          "subsections": [
+            {
+              "label": "A",
+              "title": "COMMITTEE ON SOCIALS AND CLUBS",
+              "clauses": [
+                "i. Shall be responsible to the Director of socials",
+                "ii. Shall in collaboration with the Director of social arrange for all social activities of the union as may be approved by the FEC.",
+                "iii. Shall keep proper account of proceed arising from social activities of the union and hand over such proceeds to the Director of finance not later than Forty- Eight (48) working hours after such functions.",
+                "iv. Shall have the right to reject, withdraw, withhold the affiliation of any club/society subject to ratification by the FEC.",
+                "v. Shall recommend club(s) seeking loans to the FEC.",
+                "vi. Shall recommend any disciplinary action(s) against any affiliation club operating outside its aims and objectives as entrenched in the constitution of such club(s) to the FEC.",
+                "vii. Shall from time to time ensure that each affiliated club/society pays prescribed dues to the Union.",
+                "viii. Shall perform any other function(s) as may be directed by the Director of Socials.",
+                "ix. Shall perform any other function(s) as may be directed by the Provision(s) of this constitution."
+              ]
+            },
+            {
+              "label": "B",
+              "title": "COMMITTEE ON FINANCE",
+              "clauses": [
+                "i. Shall be responsible to the Director of Finance",
+                "ii. Shall give financial advice to the Union",
+                "iii. Shall help the Union in collection of member’s annual dues.",
+                "iv. Shall perform any other function(s) as may be directed by the provision(s) of this constitution."
+              ]
+            },
+            {
+              "label": "C",
+              "title": "COMMITTEE ON WELFARE AND BUSINESS",
+              "clauses": [
+                "i. Shall be responsible to the Director of Welfare and Business.",
+                "ii. Shall liaise with the Students Affairs Division of the University to ensure that members get fair catering services.",
+                "iii. Shall look for vacation jobs for members",
+                "iv. Shall maintain regular contact with such companies/industries that are likely to provide vacation job for Union member.",
+                "v. Shall secure permanent employment for Union member if such employment is available.",
+                "vi. Shall be responsible for all matters pertaining to the Health Union members.",
+                "vii. Shall supervise and co-ordinate the affairs of the Union butteries and cafeteria.",
+                "viii. Shall handle all other commercial venture of the Union may be directed by the FEC.",
+                "ix. Shall perform any other function(s) as may be directed Director of Welfare and Business.",
+                "x. Shall perform any other function(s) as may be directed by provision(s) of this constitution."
+              ]
+            },
+            {
+              "label": "D",
+              "title": "COMMITTEE ON INFORMATION AND RESEARCH",
+              "clauses": [
+                "i. Shall be responsible to the Public Relations Officer",
+                "ii. Shall be responsible for the co-ordination and publication any Union’s magazine, Newsletters, Hand-bills and any of mode of communication in line with University laws and regulations.",
+                "iii. Shall monitor the activities of the Union in general for appropriate information dissemination.",
+                "iv. Shall carry out a thorough investigation on any information available to it",
+                "v. Shall be responsible for the Co-ordination and supervision the Union’s library.",
+                "vi. Shall liaise with the University Librarian on all matters relating to the Union’s library.",
+                "vii. Shall carry out research on all aspects of academic discipline",
+                "viii. Shall be responsible for the collection and preservation of research materials e .g journals",
+                "ix. Shall liaise with research institutes for research advice and materials through the Research Centre of the University.",
+                "x. Shall organize academic seminars, symposia, lectures and workshops periodically.",
+                "xi. Shall liaise with the Public Relations Unit of the University for necessary materials to aid its functions e.g. FUNAAB News bulletin, Academic publications, e. t. c",
+                "xii. Shall perform any other function(s) as may be directed by the Director of Public Relations.",
+                "xiii. Shall perform any other function(s) as may be directed by the provision(s) of this constitution."
+              ]
+            },
+            {
+              "label": "E",
+              "title": "COMMITTEE ON SPORTS",
+              "clauses": [
+                "i. Shall be responsible to the Sports Secretary.",
+                "ii. Shall in conjunction with the Sports Secretary co-ordinate and supervise all sporting activities of the Union.",
+                "iii. Shall from time to time liaise with institution(s) or body (ies) for Sports competitions.",
+                "iv. Shall in conjunction with the Sports Secretary take proper care of all sporting materials.",
+                "v. Shall perform any other function(s) as may be directed by the Sports Secretary",
+                "vi. Shall perform any other function(s) as may be directed by the Provision(s) of this constitution."
+              ]
+            },
+            {
+              "label": "F",
+              "title": "COMMITTEE ON SPECIAL DUTIES",
+              "clauses": [
+                "i. Shall be composed of 2/3 membership of the FEC",
+                "ii. Shall be responsible to the Office of the President",
+                "iii. Shall be responsible for the receipt of petition arising from maltreatment of any student(s).",
+                "iv. Shall be responsible for the welfare, promotion and discipline of the Union staffers.",
+                "v. Shall receive applications, forward name and recommend to the FEC",
+                "vi. Shall perform any other function(s) as may be directed by the President.",
+                "vii. Shall perform any other function(s) as may be directed by the provision(s) of this constitution."
+              ]
+            },
+            {
+              "label": "G",
+              "title": "COMMITTEE ON ASSETS MANAGEMENT",
+              "clauses": [
+                "i. There shall be an Assets Management Committee to be ratified by two-third (2/3) majority of members of the Senate.",
+                "ii. The membership of the committee which shall comprise of three representatives each from all the organs of the Union.",
+                "iii. Shall be held responsible for all assets under its watch.",
+                "iv. The committee shall have the power to determine its Chairman and Secretary",
+                "v. Shall seek to acquire new assets for the Union from time to time.",
+                "vi. The President and the Chairman of this committee shall represent the Union at SUBMAC meetings.",
+                "vii. The report of SUBMAC meetings shall be presented to the Senate as the needs may arise by the Chairman of the committee."
+              ]
+            }
+          ],
+          "clauses": []
         },
         {
           "number": 66,
           "title": "DISOLUTION OF A COMMITTEE",
-          "text": "",
+          "text": "A committee shall be dissolved;",
           "subsections": [],
           "clauses": [
-            "A committee shall be dissolved;",
             "At the discretion of the Union President",
             "On recommendation of the respective officer(s) to the Union President"
           ]
@@ -1619,10 +1612,9 @@
         {
           "number": 69,
           "title": "FUNCTIONS OF THE CHAMBER OF COMMITTEES",
-          "text": "",
+          "text": "The Chamber of Committee shall;",
           "subsections": [],
           "clauses": [
-            "The Chamber of Committee shall;",
             "Meet from time to time to discuss the problems of each committee with a view to evolving solutions.",
             "Meet from time to time to assess the execution and monitoring of the Union’s budget.",
             "Regulate the activities of the Committees",
@@ -1681,10 +1673,65 @@
           "number": 74,
           "title": "ELECTORAL PROCEDURES",
           "text": "",
-          "subsections": [
+          "subsections": [],
+          "clauses": [],
+          "content": [
             {
-              "label": "",
-              "title": "B.CAMPAIGN ROVISIONS",
+              "kind": "clause",
+              "text": "The FUNIEC shall list names of candidate in alphabetical order and shall display same on notice boards and election centers not later than Twenty-four (24) hours before election."
+            },
+            {
+              "kind": "clause",
+              "text": "Withdrawal of candidate shall be made not later than Forty-Eight hour before Election Day and such withdrawal shall be publicized on notice boards by the Electoral day."
+            },
+            {
+              "kind": "clause",
+              "text": "All contestants shall be given a copy of the Constitution upon payment of fee prescribed for electoral forms and act in accordance with guideline and rules stipulated by the provisions of this constitution."
+            },
+            {
+              "kind": "clause",
+              "text": "Each voter shall cast only one vote for each office, except if otherwise indicated e.g. multiple vacancies."
+            },
+            {
+              "kind": "clause",
+              "text": "In upholding the principle of separation of power, candidates shall not be eligible to contest elections into both Legislative and Executive arm of government."
+            },
+            {
+              "kind": "clause",
+              "text": "A student who shall not be available on the campus for at least six(6) weeks of his tenure  of office due to FPY, IT, etc, shall not be eligible to contest for any union office."
+            },
+            {
+              "kind": "clause",
+              "text": "Counting of vote shall begin immediately after close of voting at the counting centers in the presence of accredited representatives or agents of each contestant."
+            },
+            {
+              "kind": "clause",
+              "text": "Candidate shall be deemed to have won an election on the basis of a simple majority."
+            },
+            {
+              "kind": "clause",
+              "text": "However, unopposed candidate must obtain half of the total votes cast before been declared to have won an election."
+            },
+            {
+              "kind": "clause",
+              "text": "A bye-election shall be conducted in case of a tie in an election within seventy-two working hours after such election."
+            },
+            {
+              "kind": "clause",
+              "text": "Where there is a vacancy, the second runner up or next in line to the winner shall be declared winner by FUNIEC."
+            },
+            {
+              "kind": "clause",
+              "text": "FUNIEC shall issue Certificate of Return to all duly elected aspirants not more than one week after the conclusion of election."
+            },
+            {
+              "kind": "clause",
+              "text": "Sales of forms must close officially before the commencement of screening exercise, and the list all aspirants who have purchased form must be publicized at least a day before the screening exercise."
+            },
+            {
+              "kind": "subsection",
+              "label": "B",
+              "title": "CAMPAIGN PROVISIONS",
               "clauses": [
                 "Campaign shall starts as follows;",
                 "The Senate shall be one (1) week to elections while the FEC and Hall of Residence shall be two (2) weeks to elections.",
@@ -1697,21 +1744,6 @@
                 "Campaign shall be governed by the guideline of FUNIEC."
               ]
             }
-          ],
-          "clauses": [
-            "The FUNIEC shall list names of candidate in alphabetical order and shall display same on notice boards and election centers not later than Twenty-four (24) hours before election.",
-            "Withdrawal of candidate shall be made not later than Forty-Eight hour before Election Day and such withdrawal shall be publicized on notice boards by the Electoral day.",
-            "All contestants shall be given a copy of the Constitution upon payment of fee prescribed for electoral forms and act in accordance with guideline and rules stipulated by the provisions of this constitution.",
-            "Each voter shall cast only one vote for each office, except if otherwise indicated e.g. multiple vacancies.",
-            "In upholding the principle of separation of power, candidates shall not be eligible to contest elections into both Legislative and Executive arm of government.",
-            "A student who shall not be available on the campus for at least six(6) weeks of his tenure  of office due to FPY, IT, etc, shall not be eligible to contest for any union office.",
-            "Counting of vote shall begin immediately after close of voting at the counting centers in the presence of accredited representatives or agents of each contestant.",
-            "Candidate shall be deemed to have won an election on the basis of a simple majority.",
-            "However, unopposed candidate must obtain half of the total votes cast before been declared to have won an election.",
-            "A bye-election shall be conducted in case of a tie in an election within seventy-two working hours after such election.",
-            "Where there is a vacancy, the second runner up or next in line to the winner shall be declared winner by FUNIEC.",
-            "FUNIEC shall issue Certificate of Return to all duly elected aspirants not more than one week after the conclusion of election.",
-            "Sales of forms must close officially before the commencement of screening exercise, and the list all aspirants who have purchased form must be publicized at least a day before the screening exercise."
           ]
         },
         {
@@ -1811,29 +1843,31 @@
         {
           "number": 81,
           "title": "THE UNION ACCOUNTS",
-          "text": "",
+          "text": "The Union shall operate a current Account and there shall be three signatories to effect withdrawal from such account. The signatories shall be;",
           "subsections": [
+            {
+              "label": "A",
+              "title": "THE FEC",
+              "clauses": [
+                "President",
+                "Director of Treasury",
+                "Director of Finance"
+              ]
+            },
             {
               "label": "B",
               "title": "There shall be a sub-account for the Senate and FJC respectively under the Union accounts.",
               "clauses": []
             }
           ],
-          "clauses": [
-            "The Union shall operate a current Account and there shall be three signatories to effect withdrawal from such account. The signatories shall be;",
-            "THE FEC",
-            "President",
-            "Director of Treasury",
-            "Director of Finance"
-          ]
+          "clauses": []
         },
         {
           "number": 82,
           "title": "HALL ACCOUNT",
-          "text": "",
+          "text": "The Halls Residence shall operate respective current account and there shall be three signatories to effect withdrawal from such accounts. The signatories shall be;",
           "subsections": [],
           "clauses": [
-            "The Halls Residence shall operate respective current account and there shall be three signatories to effect withdrawal from such accounts. The signatories shall be;",
             "Chairman",
             "Treasurer",
             "Minister of Finance"
@@ -1842,7 +1876,7 @@
         {
           "number": 83,
           "title": "BUDGET AND EXPENDITURE",
-          "text": "",
+          "text": "The annual budget of the Union shall be published on the Union notice boards by the Director of Finance not later than Seventy-two (72) working hours after approval by the Senate. Such approval budget shall be compiled in two copies;",
           "subsections": [
             {
               "label": "",
@@ -1861,7 +1895,6 @@
             }
           ],
           "clauses": [
-            "The annual budget of the Union shall be published on the Union notice boards by the Director of Finance not later than Seventy-two (72) working hours after approval by the Senate. Such approval budget shall be compiled in two copies;",
             "A copy to be given to the Clerk of the Senate",
             "A copy to be retained by the Director of Finance on behalf of the FEC."
           ]
@@ -1869,10 +1902,9 @@
         {
           "number": 84,
           "title": "SOURCES OF INCOME",
-          "text": "",
+          "text": "Union income shall be obtained from the following source:",
           "subsections": [],
           "clauses": [
-            "Union income shall be obtained from the following source:",
             "Membership dues as may be decided by FEC.",
             "Remittance from other bodies of the Union.",
             "Donations made to the Unions",
@@ -1899,10 +1931,9 @@
         {
           "number": 86,
           "title": "ALLOWANCE",
-          "text": "",
+          "text": "Any member of the Union on official duty shall be entitled to an out-station over-night allowance as follows:-",
           "subsections": [],
           "clauses": [
-            "Any member of the Union on official duty shall be entitled to an out-station over-night allowance as follows:-",
             "The President shall be entitled to Three Thousand five hundred naira (N3, 500.00) per night.",
             "The other Principal Officers of the Union shall be entitled to Three Thousand naira (N3, 000.00) per night.",
             "The key officers of the Union shall be entitled to Two Thousand Naira only (2,000.00) per night."
@@ -1974,11 +2005,21 @@
           "title": "CLUBS AND SOCIETIES",
           "text": "",
           "subsections": [],
-          "clauses": [
-            "May be affiliated to the Student Union except otherwise indicated by this constitution.",
-            "Shall be divided into two categories:",
-            "Clubs and Societies formed, supported and sponsored by the Union and registered with the University.",
-            "Clubs and societies formed independently self-supported and registered with the University."
+          "clauses": [],
+          "content": [
+            {
+              "kind": "clause",
+              "text": "May be affiliated to the Student Union except otherwise indicated by this constitution."
+            },
+            {
+              "kind": "subsection",
+              "label": "",
+              "title": "Shall be divided into two categories:",
+              "clauses": [
+                "Clubs and Societies formed, supported and sponsored by the Union and registered with the University.",
+                "Clubs and societies formed independently self-supported and registered with the University."
+              ]
+            }
           ]
         },
         {
@@ -2018,14 +2059,26 @@
         {
           "number": 92,
           "title": "PRIVILEGES OF AFFILIATION",
-          "text": "",
+          "text": "Affiliated Clubs and Societies shall:",
           "subsections": [],
-          "clauses": [
-            "Affiliated Clubs and Societies shall:",
-            "Make use of the Union’s facilities from time as may be determined by the FEC.",
-            "Enjoy full Union patronage.",
-            "Have the right to summon and be summoned before the Students Union Court.",
-            "Send representatives to defend or inform any organ or unit of the Union."
+          "clauses": [],
+          "content": [
+            {
+              "kind": "clause",
+              "text": "Make use of the Union’s facilities from time as may be determined by the FEC."
+            },
+            {
+              "kind": "clause",
+              "text": "Enjoy full Union patronage."
+            },
+            {
+              "kind": "clause",
+              "text": "Have the right to summon and be summoned before the Students Union Court."
+            },
+            {
+              "kind": "clause",
+              "text": "Send representatives to defend or inform any organ or unit of the Union."
+            }
           ]
         },
         {
@@ -2058,13 +2111,22 @@
         {
           "number": 94,
           "title": "RELATIONSHIP OF THE UNION WITH OTHER BODIES",
-          "text": "",
+          "text": "a. The Union shall:",
           "subsections": [],
-          "clauses": [
-            "a. The Union shall:",
-            "Maintain cordial relationship with other student bodies in all Educational Institution of Nigeria and other International bodies.",
-            "Maintain cordial relationship with other bodies at both National and International level.",
-            "The relationship I and II above shall be in the best interest of the Union."
+          "clauses": [],
+          "content": [
+            {
+              "kind": "clause",
+              "text": "Maintain cordial relationship with other student bodies in all Educational Institution of Nigeria and other International bodies."
+            },
+            {
+              "kind": "clause",
+              "text": "Maintain cordial relationship with other bodies at both National and International level."
+            },
+            {
+              "kind": "clause",
+              "text": "The relationship I and II above shall be in the best interest of the Union."
+            }
           ]
         },
         {
@@ -2092,12 +2154,24 @@
           "title": "The activities of the Union shall include",
           "text": "",
           "subsections": [],
-          "clauses": [
-            "a. The Federal University of Agriculture, Abeokuta Student Union week shall be an annual event and shall be coordinated in the second (2nd) semester of every session.",
-            "It shall be supervised and fully coordinated by the Union’s Vice President.",
-            "The Committee on Socials and Clubs and other Union bodies as may be decided by the FEC shall be deeply involved in the planning and/or execution of the programmes of the Student Union Week.",
-            "Membership of the Union week committee shall cut across all the organs of the Union and approved by a simple majority of a Senate sitting.",
-            "b. Other activities which have been entrenched in this constitution including Fund Raising activities, Self-help projects, Foundation Day activities, Day-to-Day activities and other activities may be determined by the FEC but shall be ratified and approved by the Senate."
+          "clauses": [],
+          "content": [
+            {
+              "kind": "subsection",
+              "label": "a",
+              "title": "The Federal University of Agriculture, Abeokuta Student Union week shall be an annual event and shall be coordinated in the second (2nd) semester of every session.",
+              "clauses": [
+                "It shall be supervised and fully coordinated by the Union’s Vice President.",
+                "The Committee on Socials and Clubs and other Union bodies as may be decided by the FEC shall be deeply involved in the planning and/or execution of the programmes of the Student Union Week.",
+                "Membership of the Union week committee shall cut across all the organs of the Union and approved by a simple majority of a Senate sitting."
+              ]
+            },
+            {
+              "kind": "subsection",
+              "label": "b",
+              "title": "Other activities which have been entrenched in this constitution including Fund Raising activities, Self-help projects, Foundation Day activities, Day-to-Day activities and other activities may be determined by the FEC but shall be ratified and approved by the Senate.",
+              "clauses": []
+            }
           ]
         },
         {
@@ -2139,8 +2213,11 @@
           "number": 99,
           "title": "COMPOSITION",
           "text": "",
-          "subsections": [
+          "subsections": [],
+          "clauses": [],
+          "content": [
             {
+              "kind": "subsection",
               "label": "A",
               "title": "The Self-Help project committee shall comprise:",
               "clauses": [
@@ -2149,27 +2226,38 @@
                 "Director of Socials",
                 "Director of Welfare and Business",
                 "A representative of the FJC",
-                "Two (2) representatives of the Students (Ordinary members).",
-                "B    The President shall be the Chairman of the Committee."
+                "Two (2) representatives of the Students (Ordinary members)."
               ]
             },
             {
+              "kind": "subsection",
+              "label": "B",
+              "title": "The President shall be the Chairman of the Committee.",
+              "clauses": []
+            },
+            {
+              "kind": "subsection",
               "label": "C",
               "title": "The Committee shall be empowered to appoint its Secretary.",
               "clauses": []
             }
-          ],
-          "clauses": []
+          ]
         },
         {
           "number": 100,
           "title": "SOURCE(S) OF FINANCE OF SELF-HELP PROJECTS",
-          "text": "",
+          "text": "Self-Help project shall be financed through:",
           "subsections": [],
-          "clauses": [
-            "Self-Help project shall be financed through:",
-            "Voluntary Donation from Student",
-            "Donation from Institution(s), Educationist(s), Philanthropist(s), Government Agency(ies), Association(s), Club(s), Society(ies), Firms, etc provided such donation shall not indicate and/or express any obligation whatsoever on the part the Union or the University authority."
+          "clauses": [],
+          "content": [
+            {
+              "kind": "clause",
+              "text": "Voluntary Donation from Student"
+            },
+            {
+              "kind": "clause",
+              "text": "Donation from Institution(s), Educationist(s), Philanthropist(s), Government Agency(ies), Association(s), Club(s), Society(ies), Firms, etc provided such donation shall not indicate and/or express any obligation whatsoever on the part the Union or the University authority."
+            }
           ]
         },
         {
@@ -2479,25 +2567,36 @@
                 "Shall never be in vain",
                 "To serve with Heart and might",
                 "One Nation bound in freedom",
-                "Peace and Unity.",
-                "This 2019 Constitution of the FUNAAB Students’ Union Government was drafted by the 2018/2019 Parliamentary Committee on Constitution Review",
-                "NameFederal Constituency Designation",
-                "Hon. Amos Olanipekun ANN Chairman",
-                "Hon. Lawal Onipede  PHSSecretary",
-                "Hon. Timilehin Ogunnowo                        WMA Member",
-                "Hon. Adesoji Adelaja                                  SSLMMember",
-                "Hon. Onyeka Umenne                       VETMember",
-                "Hon. Ridwan Onaneye                     CVEMember",
-                "Hon. Olawale Oderinde                  AGADMember",
+                "Peace and Unity."
+              ]
+            },
+            {
+              "label": "I",
+              "title": "DRAFTING AND PRESIDENTIAL ASSENT",
+              "clauses": [
+                "This 2019 Constitution of the FUNAAB Students’ Union Government was drafted by the 2018/2019 Parliamentary Committee on Constitution Review.",
+                "Name | Federal Constituency | Designation",
+                "Hon. Amos Olanipekun | ANN | Chairman",
+                "Hon. Lawal Onipede | PHS | Secretary",
+                "Hon. Timilehin Ogunnowo | WMA | Member",
+                "Hon. Adesoji Adelaja | SSLM | Member",
+                "Hon. Onyeka Umenne | VET | Member",
+                "Hon. Ridwan Onaneye | CVE | Member",
+                "Hon. Olawale Oderinde | AGAD | Member",
                 "Under the Leadership of the 25th Student Representatives Assembly",
-                "Name Federal ConstituencyDesignation",
-                "Rt. Hon. ‘Samod A. OladeleEMT Speaker",
-                "Hon. Clement Onyeukwu MTEDeputy Speaker",
-                "Hon. Ololade I. Lawanson  CHMClerk",
-                "Hon. Mubeen Azeez  VETDeputy Clerk",
-                "Hon. Olamide Odewole  APHSergeant-at-arms",
-                "Presidential assent",
-                "I, Comrade Tioluwanimi R. OJO-LANRE, the Acting President and Vice-President of the Federal University of Agriculture, Abeokuta Student Union 2018/2019 between Friday, 6th December, 2019 and Monday, 20th January, 2020, having formerly examined and ascertained this true copy of the provisions of the constitution as reviewed by the 25th Student Representatives Assembly under the  leadership of Rt. Hon. ‘Samod A. OLADELE on the recommendation of the Committee on Constitution Review, as good laws designed and formulated for the defense of human and student rights, morality, good conscience, equity and good governance and for the empowerment of a sustainable academic and leadership pursuit in the Federal University of Agriculture, Abeokuta, hereby on this 6th day of January, 2020, give assent to these laws as the constitution of the Federal University of Agriculture, Abeokuta Student Union and it thus immediately becomes binding as the supreme law on all authorities, bodies, students and persons under its numerous provisions upon approval of Prof. Felix Kolawole SALAKO, the Vice-Chancellor, Federal University of Agriculture, Abeokuta",
+                "Name | Federal Constituency | Designation",
+                "Rt. Hon. ‘Samod A. Oladele | EMT | Speaker",
+                "Hon. Clement Onyeukwu | MTE | Deputy Speaker",
+                "Hon. Ololade I. Lawanson | CHM | Clerk",
+                "Hon. Mubeen Azeez | VET | Deputy Clerk",
+                "Hon. Olamide Odewole | APH | Sergeant-at-arms"
+              ]
+            },
+            {
+              "label": "J",
+              "title": "PRESIDENTIAL ASSENT",
+              "clauses": [
+                "I, Comrade Tioluwanimi R. OJO-LANRE, the Acting President and Vice-President of the Federal University of Agriculture, Abeokuta Student Union 2018/2019 between Friday, 6th December, 2019 and Monday, 20th January, 2020, having formerly examined and ascertained this true copy of the provisions of the constitution as reviewed by the 25th Student Representatives Assembly under the leadership of Rt. Hon. ‘Samod A. OLADELE on the recommendation of the Committee on Constitution Review, as good laws designed and formulated for the defense of human and student rights, morality, good conscience, equity and good governance and for the empowerment of a sustainable academic and leadership pursuit in the Federal University of Agriculture, Abeokuta, hereby on this 6th day of January, 2020, give assent to these laws as the constitution of the Federal University of Agriculture, Abeokuta Student Union and it thus immediately becomes binding as the supreme law on all authorities, bodies, students and persons under its numerous provisions upon approval of Prof. Felix Kolawole SALAKO, the Vice-Chancellor, Federal University of Agriculture, Abeokuta.",
                 "___________________________",
                 "Hon. Ololade I. Lawanson",
                 "Clerk to the Student Representatives Assembly,",
@@ -2524,8 +2623,7 @@
             "No amendment shall be made on partisan interest.",
             "A motion for amendment shall be effected by approval of 2/3 members of the Senate at a sitting summoned exclusively for the purpose.",
             "The amended part of the constitution shall be communicated in writing to the University through the Dean, Student Affairs not later than forty-eight (48) hours after such amendment for approval.",
-            "The amendment as approval by the University shall be displayed on all notice boards by the clerk of the Senate.",
-            "APPENDIX 1"
+            "The amendment as approval by the University shall be displayed on all notice boards by the clerk of the Senate."
           ]
         }
       ]

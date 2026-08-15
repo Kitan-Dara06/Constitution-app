@@ -80,7 +80,7 @@ def detect_subhead(line, expected_label, section_re):
         return None
     m = SUBHEAD_RE.match(line)
     if m:
-        return (m.group(1), m.group(2).strip())
+      return (m.group(1), m.group(2).strip())
     # Glued letter? Only accept if it matches the expected continuation letter.
     glued = _peel_glued_letter(line, expected_label)
     if glued:
@@ -165,6 +165,14 @@ def main():
     def flush_section():
         nonlocal cur_section
         if cur_article and cur_section:
+            # If the section has no lead text but its first clause is a
+            # colon-terminated intro sentence (e.g. "There shall be patrons
+            # …but:"), promote it to lead text so it renders as prose above
+            # the bullet list rather than as a bullet.
+            if not cur_section["text"] and cur_section["clauses"]:
+                first = cur_section["clauses"][0].rstrip()
+                if first.endswith(":") and not first.startswith(("Shall", "Must")):
+                    cur_section["text"] = cur_section["clauses"].pop(0)
             cur_article["sections"].append(cur_section)
         cur_section = None
 
@@ -213,14 +221,17 @@ def main():
             i += 1
             continue
         # Detect lettered sub-heading inside the current section.
-        # `expected` keeps the A→B→C… chain honest so a random uppercase word
-        # (like a clause starting with "All…") isn't mislabelled.
+        # `expected` keeps the A→B→C… chain honest: look BACKWARDS for the
+        # last subsection that had a real label and use the letter after it.
+        # Bare (letterless) subsections like "MINISTER OF SPORTS" don't reset
+        # the sequence, so [A] … [bare] … [bare] … [B] still works.
         if cur_section is not None:
             subs = cur_section["subsections"]
-            if subs and subs[-1]["label"]:
-                expected = chr(ord(subs[-1]["label"]) + 1)
-            else:
-                expected = "A"
+            expected = "A"
+            for back in reversed(subs):
+                if back["label"]:
+                    expected = chr(ord(back["label"]) + 1)
+                    break
             sub = detect_subhead(paras[i]["text"], expected, SECTION_RE)
             if sub:
                 label, sub_title = sub

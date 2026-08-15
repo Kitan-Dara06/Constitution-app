@@ -6,6 +6,9 @@ export interface Meta {
   fullTitle: string;
   subtitle: string;
   version: string;
+  /** Credit for the app itself (distinct from the document's own drafting
+   *  history). Shown in Settings → About and the footer. */
+  appCredit?: string;
 }
 
 export interface Subsection {
@@ -14,10 +17,24 @@ export interface Subsection {
   clauses: string[];
 }
 
+/** A block in a section's ordered content stream. Either a flat clause
+ * (rendered as a single bullet/paragraph) or a labelled sub-part with its
+ * own clauses. Order in the array = order on the page. */
+export type ContentBlock =
+  | { kind: "clause"; text: string }
+  | { kind: "subsection"; label: string; title: string; clauses: string[] };
+
 export interface Section {
   number: number;
   title: string;
   text: string;
+  /** Ordered list of clauses and subsections. Renders in array order, so
+   * clauses and subsections can interleave freely (e.g. clauses first, then
+   * a B subsection, then more clauses). Falls back to the legacy
+   * `clauses` + `subsections` arrays when `content` is absent. */
+  content?: ContentBlock[];
+  /** @deprecated use `content` — kept for backwards compatibility with
+   * pre-migration data. Rendered after `content` if both are present. */
   subsections: Subsection[];
   clauses: string[];
 }
@@ -79,14 +96,31 @@ export const sectionCount = constitution.articles.reduce(
   0,
 );
 
+/** Flatten a section's content (new `content` array + legacy `clauses` /
+ * `subsections`) into one ordered list of text strings. Used by search and
+ * the related-articles keyword extractor so they see every block regardless
+ * of which field it lives in. */
+export function sectionText(s: Section): string[] {
+  const out: string[] = [];
+  if (s.content) {
+    for (const b of s.content) {
+      if (b.kind === "clause") out.push(b.text);
+      else out.push(b.title, ...b.clauses);
+    }
+  }
+  // legacy
+  out.push(...s.clauses);
+  for (const sub of s.subsections) out.push(sub.title, ...sub.clauses);
+  return out;
+}
+
 /** Flat, de-duplicated keyword set for an article (used for "related"). */
 export function articleKeywords(a: Article): Set<string> {
   const text = [
     a.title,
     ...a.intro,
     ...a.sections.map((s) => `${s.title} ${s.text}`),
-    ...a.sections.flatMap((s) => s.clauses),
-    ...a.sections.flatMap((s) => s.subsections.flatMap((sub) => [sub.title, ...sub.clauses])),
+    ...a.sections.flatMap((s) => sectionText(s)),
   ]
     .join(" ")
     .toLowerCase();
@@ -168,18 +202,14 @@ export function search(query: string, filters?: SearchFilters): SearchHit[] {
   if (want("section")) {
     for (const a of constitution.articles) {
       for (const s of a.sections) {
-        const hay = `${s.title} ${s.text} ${s.clauses.join(
-          " ",
-        )} ${s.subsections
-          .map((sub) => `${sub.title} ${sub.label} ${sub.clauses.join(" ")}`)
-          .join(" ")}`;
+        const hay = `${s.title} ${s.text} ${sectionText(s).join(" ")}`;
         if (match(hay)) {
           hits.push({
             kind: "section",
             articleNumber: a.number,
             sectionNumber: s.number,
             title: `S.${s.number} ${s.title} — Article ${a.number}`,
-            snippet: (s.text || s.clauses.join(" ") || "").slice(0, 140),
+            snippet: (s.text || sectionText(s).join(" ") || "").slice(0, 140),
             href: `/articles/${a.number}#s${s.number}`,
           });
           break; // one hit per section is enough

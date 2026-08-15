@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import type { Article, Section } from "@/lib/data";
+import type { Article, Section, ContentBlock } from "@/lib/data";
 import { SaveBar } from "@/components/SaveBar";
 import { RecentTracker } from "@/components/RecentTracker";
 import { kArticle, kSection } from "@/lib/content-key";
@@ -80,8 +80,8 @@ export function ArticleReader({ article: a, related, prev, next }: Props) {
 
       {/* Intro (always visible) */}
       {a.intro.length > 0 && (
-        <p className="reading font-serif text-base leading-relaxed text-muted">
-          {a.intro.join(" ")}
+        <p className="reading font-serif text-base leading-relaxed text-muted whitespace-pre-line">
+          {a.intro.join("\n")}
         </p>
       )}
 
@@ -107,12 +107,21 @@ export function ArticleReader({ article: a, related, prev, next }: Props) {
           <ul className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
             {a.sections.map((s, i) => {
               const selected = active === i;
-              const subCount = s.subsections.length;
-              const clauseCount = s.clauses.length;
-              const total =
-                clauseCount +
-                subCount +
-                s.subsections.reduce((t, x) => t + x.clauses.length, 0);
+              let subCount = 0;
+              let total = 0;
+              if (s.content) {
+                for (const b of s.content) {
+                  if (b.kind === "clause") total++;
+                  else {
+                    subCount++;
+                    total += b.clauses.length;
+                  }
+                }
+              } else {
+                subCount = s.subsections.length;
+                total = s.clauses.length + s.subsections.length
+                  + s.subsections.reduce((t, x) => t + x.clauses.length, 0);
+              }
               return (
                 <li key={s.number}>
                   <button
@@ -176,48 +185,20 @@ export function ArticleReader({ article: a, related, prev, next }: Props) {
               </div>
 
               <div className="reading font-serif text-fg/90 mt-4 flex flex-col gap-4">
-                {current.text && <p>{current.text}</p>}
+                {current.text && <p className="whitespace-pre-line">{current.text}</p>}
 
-                {current.subsections.length > 0 && (
-                  <div className="flex flex-col gap-4">
-                    {current.subsections.map((sub, i) => (
-                      <div
-                        key={i}
-                        className="rounded-xl border border-dashed border-border bg-surface/60 p-3.5"
-                      >
-                        <h3 className="font-sans text-base font-semibold tracking-tight text-fg/95">
-                          {sub.label ? (
-                            <span className="mr-1.5 inline-grid h-5 w-5 place-items-center rounded-md bg-accent-soft text-[0.7rem] font-bold text-accent align-middle">
-                              {sub.label}
-                            </span>
-                          ) : null}
-                          {sub.title}
-                        </h3>
-                        {sub.clauses.length > 0 && (
-                          <ol className="mt-2 flex flex-col gap-2">
-                            {sub.clauses.map((c, j) => (
-                              <li key={j} className="flex gap-2.5">
-                                <span className="mt-1.5 grid h-1.5 w-1.5 shrink-0 place-items-center rounded-full bg-accent/50" />
-                                <span>{c}</span>
-                              </li>
-                            ))}
-                          </ol>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {current.clauses.length > 0 && (
-                  <ol className="flex flex-col gap-2.5">
-                    {current.clauses.map((c, i) => (
-                      <li key={i} className="flex gap-3">
-                        <span className="mt-1.5 grid h-1.5 w-1.5 shrink-0 place-items-center rounded-full bg-accent/50" />
-                        <span>{c}</span>
-                      </li>
-                    ))}
-                  </ol>
-                )}
+                {current.content
+                  ? current.content.map((b, i) =>
+                      b.kind === "clause" ? (
+                        <div key={i} className="flex gap-3">
+                          <span className="mt-1.5 grid h-1.5 w-1.5 shrink-0 place-items-center rounded-full bg-accent/50" />
+                          <span className="whitespace-pre-line">{b.text}</span>
+                        </div>
+                      ) : (
+                        <SubsectionCard key={i} label={b.label} title={b.title} clauses={b.clauses} />
+                      ),
+                    )
+                  : <LegacySectionBody section={current} />}
               </div>
 
               {/* prev / next section */}
@@ -282,10 +263,19 @@ export function ArticleReader({ article: a, related, prev, next }: Props) {
             </h2>
           </div>
           <div className="reading font-serif text-fg/90 mt-4 flex flex-col gap-4">
-            {a.sections[0].text && <p>{a.sections[0].text}</p>}
-            {a.sections[0].clauses.map((c, i) => (
-              <p key={i}>{c}</p>
-            ))}
+            {a.sections[0].text && <p className="whitespace-pre-line">{a.sections[0].text}</p>}
+            {a.sections[0].content
+              ? a.sections[0].content.map((b, i) =>
+                  b.kind === "clause" ? (
+                    <div key={i} className="flex gap-3">
+                      <span className="mt-1.5 grid h-1.5 w-1.5 shrink-0 place-items-center rounded-full bg-accent/50" />
+                      <span className="whitespace-pre-line">{b.text}</span>
+                    </div>
+                  ) : (
+                    <SubsectionCard key={i} label={b.label} title={b.title} clauses={b.clauses} />
+                  ),
+                )
+              : <LegacySectionBody section={a.sections[0]} />}
           </div>
         </section>
       ) : null}
@@ -392,5 +382,71 @@ function SectionStepper({
         {align === "right" && <ChevronRight width={12} height={12} />}
       </span>
     </button>
+  );
+}
+
+/** Renders one lettered sub-part card (used by both new `content` blocks
+ *  and the legacy `subsections` array). */
+function SubsectionCard({
+  label,
+  title,
+  clauses,
+}: {
+  label: string;
+  title: string;
+  clauses: string[];
+}) {
+  return (
+    <div className="rounded-xl border border-dashed border-border bg-surface/60 p-3.5">
+      <h3 className="font-sans text-base font-semibold tracking-tight text-fg/95">
+        {label ? (
+          <span className="mr-1.5 inline-grid h-5 w-5 place-items-center rounded-md bg-accent-soft text-[0.7rem] font-bold text-accent align-middle">
+            {label}
+          </span>
+        ) : null}
+        {title}
+      </h3>
+      {clauses.length > 0 && (
+        <ol className="mt-2 flex flex-col gap-2">
+          {clauses.map((c, j) => (
+            <li key={j} className="flex gap-2.5">
+              <span className="mt-1.5 grid h-1.5 w-1.5 shrink-0 place-items-center rounded-full bg-accent/50" />
+              <span className="whitespace-pre-line">{c}</span>
+            </li>
+          ))}
+        </ol>
+      )}
+    </div>
+  );
+}
+
+/** Legacy rendering: subsections first, then flat clauses. Used only when a
+ *  section has no `content` array (older data that wasn't migrated). */
+function LegacySectionBody({ section }: { section: Section }) {
+  return (
+    <>
+      {section.subsections.length > 0 && (
+        <div className="flex flex-col gap-4">
+          {section.subsections.map((sub, i) => (
+            <SubsectionCard
+              key={i}
+              label={sub.label}
+              title={sub.title}
+              clauses={sub.clauses}
+            />
+          ))}
+        </div>
+      )}
+      {section.clauses.length > 0 && (
+        <ol className="flex flex-col gap-2.5">
+          {section.clauses.map((c, i) => (
+            <li key={i} className="flex gap-3">
+              <span className="mt-1.5 grid h-1.5 w-1.5 shrink-0 place-items-center rounded-full bg-accent/50" />
+              <span className="whitespace-pre-line">{c}</span>
+            </li>
+          ))}
+        </ol>
+      )}
+    </>
   );
 }

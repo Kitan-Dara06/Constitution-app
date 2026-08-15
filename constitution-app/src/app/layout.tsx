@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { AppProviders } from "@/components/AppProviders";
 import { Nav } from "@/components/Nav";
+import { constitution } from "@/lib/data";
 import "./globals.css";
 
 const THEME_INIT = `(function(){try{
@@ -50,6 +51,9 @@ export default function RootLayout({
               <p>
                 The 2019 Revised Constitution of FUNAABSU · {new Date().getFullYear()}
               </p>
+              {constitution.meta.appCredit && (
+                <p className="italic">{constitution.meta.appCredit}</p>
+              )}
               <p className="flex items-center gap-2">
                 <a href="/admin" className="hover:text-fg transition">
                   Admin

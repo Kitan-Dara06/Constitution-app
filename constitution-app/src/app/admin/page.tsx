@@ -13,6 +13,37 @@ import type {
 } from "@/lib/data";
 import { ScaleIcon, CheckIcon, CloseIcon, PlusIcon, EditIcon } from "@/components/icons";
 
+// Let Tab key insert a tab character (or 4 spaces) inside textareas instead
+// of moving focus. Supports tab+selection (indents the block) and Shift+Tab
+// (outdents). Attached to every textarea in the admin editor.
+function tabKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
+  if (e.key !== "Tab") return;
+  e.preventDefault();
+  const ta = e.currentTarget;
+  const { selectionStart: start, selectionEnd: end, value } = ta;
+  const indent = e.shiftKey ? "" : "\t";
+  if (start === end) {
+    // no selection — insert at cursor
+    const next = value.slice(0, start) + indent + value.slice(end);
+    ta.value = next;
+    ta.selectionStart = ta.selectionEnd = start + indent.length;
+  } else {
+    // selection — indent/outdent each line in the range
+    const lineStart = value.lastIndexOf("\n", start - 1) + 1;
+    const block = value.slice(lineStart, end);
+    const lines = block.split("\n");
+    const updated = lines
+      .map((l) => (e.shiftKey ? l.replace(/^\t/, "") : indent + l))
+      .join("\n");
+    const next = value.slice(0, lineStart) + updated + value.slice(end);
+    ta.value = next;
+    ta.selectionStart = lineStart;
+    ta.selectionEnd = lineStart + updated.length;
+  }
+  // trigger React's onChange so the state updates
+  ta.dispatchEvent(new Event("input", { bubbles: true }));
+}
+
 const PW_KEY = "cc:adminpw";
 const STATUS: BillStatus[] = ["proposed", "debated", "passed", "rejected", "withdrawn"];
 
@@ -157,11 +188,32 @@ function MetaEditor({
           onChange={(e) => set((d) => void (d.meta.version = e.target.value))}
         />
       </div>
+      <div className="sm:col-span-2">
+        <Label>App credit (shown in Settings → About and the footer)</Label>
+        <input
+          className="input"
+          value={data.meta.appCredit ?? ""}
+          placeholder="e.g. Built by the 32nd Assembly under the leadership of …"
+          onChange={(e) => set((d) => void (d.meta.appCredit = e.target.value))}
+        />
+      </div>
     </div>
   );
 }
 
 // ── section editor ────────────────────────────────────────────────────────────
+// Add up/down arrow icons if not already imported — using Chevron up/down-// like symbols. We’ll reuse ChevronLeft rotated, but cleaner to inline small SVGs.
+const ArrowUpIcon = (p: { width?: number; height?: number; className?: string }) => (
+  <svg width={p.width ?? 14} height={p.height ?? 14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className={p.className}>
+    <path d="m6 15 6-6 6 6" />
+  </svg>
+);
+const ArrowDownIcon = (p: { width?: number; height?: number; className?: string }) => (
+  <svg width={p.width ?? 14} height={p.height ?? 14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className={p.className}>
+    <path d="m6 9 6 6 6-6" />
+  </svg>
+);
+
 function SectionEditor({
   s,
   onChange,
@@ -171,6 +223,50 @@ function SectionEditor({
   onChange: (fn: (s: Section) => void) => void;
   onRemove: () => void;
 }) {
+  // Work on the ordered `content` array; lazily migrate from legacy fields.
+  const ensureContent = (): NonNullable<Section["content"]> => {
+    if (s.content) return s.content;
+    const c: NonNullable<Section["content"]> = [];
+    for (const text of s.clauses) c.push({ kind: "clause", text });
+    for (const sub of s.subsections)
+      c.push({ kind: "subsection", label: sub.label, title: sub.title, clauses: sub.clauses });
+    return c;
+  };
+
+  const update = (fn: (content: NonNullable<Section["content"]>) => void) =>
+    onChange((x) => {
+      const content = x.content ?? ensureContentFor(x);
+      fn(content);
+      x.content = content;
+      x.clauses = [];
+      x.subsections = [];
+    });
+  // ensureContentFor: same as ensureContent but operates on the draft `x`
+  function ensureContentFor(x: Section): NonNullable<Section["content"]> {
+    if (x.content) return x.content;
+    const c: NonNullable<Section["content"]> = [];
+    for (const text of x.clauses) c.push({ kind: "clause", text });
+    for (const sub of x.subsections)
+      c.push({ kind: "subsection", label: sub.label, title: sub.title, clauses: sub.clauses });
+    return c;
+  }
+
+  const content = s.content ?? ensureContent();
+
+  const addClause = (idx: number) =>
+    update((c) => c.splice(idx, 0, { kind: "clause", text: "" }));
+  const addSubsection = (idx: number) =>
+    update((c) =>
+      c.splice(idx, 0, { kind: "subsection", label: "", title: "", clauses: [] }));
+  const remove = (idx: number) => update((c) => void c.splice(idx, 1));
+  const move = (idx: number, dir: -1 | 1) =>
+    update((c) => {
+      const j = idx + dir;
+      if (j < 0 || j >= c.length) return;
+      const [item] = c.splice(idx, 1);
+      c.splice(j, 0, item);
+    });
+
   return (
     <div className="rounded-xl border bg-surface-2/60 p-4">
       <div className="flex items-center justify-between">
@@ -196,106 +292,158 @@ function SectionEditor({
         <textarea
           className="input min-h-[64px]"
           value={s.text}
-          placeholder="Lead text (optional)"
+          onKeyDown={tabKeyDown}
+          placeholder="Lead text (optional — opens the section before any blocks)"
           onChange={(e) => onChange((x) => void (x.text = e.target.value))}
         />
-        <Label>Clauses (one per line is fine; add/remove below)</Label>
-        {s.clauses.map((c, i) => (
-          <ItemRow
-            key={i}
-            label="clause"
-            onRemove={() => onChange((x) => void x.clauses.splice(i, 1))}
-          >
-            <textarea
-              className="input min-h-[44px]"
-              value={c}
-              onChange={(e) =>
-                onChange((x) => void x.clauses.splice(i, 1, e.target.value))
-              }
-            />
-          </ItemRow>
-        ))}
-        <button
-          type="button"
-          className="btn-outline self-start !py-1.5"
-          onClick={() => onChange((x) => void x.clauses.push(""))}
-        >
-          <PlusIcon width={14} height={14} /> Clause
-        </button>
 
-        <Label>Sub-sections (lettered sub-parts such as A. The President)</Label>
-        {s.subsections.map((sub, i) => (
-          <div
-            key={i}
-            className="rounded-lg border border-dashed bg-surface p-3"
-          >
-            <div className="flex items-center gap-2">
-              <input
-                className="input !w-12 !py-1.5 text-center"
-                value={sub.label}
-                placeholder="-"
-                onChange={(e) =>
-                  onChange((x) => void (x.subsections[i].label = e.target.value))
-                }
-              />
-              <input
-                className="input flex-1 !py-1.5"
-                value={sub.title}
-                placeholder="Sub-section title (e.g. The President)"
-                onChange={(e) =>
-                  onChange((x) => void (x.subsections[i].title = e.target.value))
-                }
-              />
-              <button
-                type="button"
-                onClick={() => onChange((x) => void x.subsections.splice(i, 1))}
-                className="btn-ghost !px-2 !py-1.5 text-muted hover:text-rose-500"
-                aria-label="Remove sub-section"
-              >
-                <CloseIcon width={14} height={14} />
-              </button>
-            </div>
-            <div className="mt-2">
-              {sub.clauses.map((c, j) => (
-                <ItemRow
-                  key={j}
-                  label="clause"
-                  onRemove={() =>
-                    onChange((x) => void x.subsections[i].clauses.splice(j, 1))
+        <Label>Content blocks (in order — clauses + sub-sections can interleave)</Label>
+
+        {/* Insert rail at the top */}
+        <InsertRail onClause={() => addClause(0)} onSub={() => addSubsection(0)} />
+
+        {content.map((b, i) => (
+          <div key={i}>
+            {b.kind === "clause" ? (
+              <div className="rounded-lg border bg-surface p-2.5">
+                <div className="mb-1.5 flex items-center gap-1">
+                  <span className="rounded bg-accent-soft px-1.5 py-0.5 text-[0.65rem] font-bold text-accent">CLAUSE</span>
+                  <div className="ml-auto flex gap-0.5">
+                    <button
+                      type="button"
+                      onClick={() => move(i, -1)}
+                      className="btn-ghost !px-1.5 !py-1 text-muted"
+                      aria-label="Move up"
+                    ><ArrowUpIcon /></button>
+                    <button
+                      type="button"
+                      onClick={() => move(i, 1)}
+                      className="btn-ghost !px-1.5 !py-1 text-muted"
+                      aria-label="Move down"
+                    ><ArrowDownIcon /></button>
+                    <button
+                      type="button"
+                      onClick={() => remove(i)}
+                      className="btn-ghost !px-1.5 !py-1 text-muted hover:text-rose-500"
+                      aria-label="Remove"
+                    ><CloseIcon width={14} height={14} /></button>
+                  </div>
+                </div>
+                <textarea
+                  className="input min-h-[44px]"
+                  value={b.text}
+                  onKeyDown={tabKeyDown}
+                  placeholder="Clause text"
+                  onChange={(e) =>
+                    update((c) => void (c[i] = { kind: "clause", text: e.target.value }))
                   }
-                >
-                  <textarea
-                    className="input min-h-[40px]"
-                    value={c}
+                />
+              </div>
+            ) : (
+              <div className="rounded-lg border border-dashed bg-surface p-3">
+                <div className="flex items-center gap-2">
+                  <span className="rounded bg-accent-soft px-1.5 py-0.5 text-[0.65rem] font-bold text-accent">SUB-SECTION</span>
+                  <input
+                    className="input !w-12 !py-1.5 text-center"
+                    value={b.label}
+                    placeholder="-"
                     onChange={(e) =>
-                      onChange((x) =>
-                        void x.subsections[i].clauses.splice(j, 1, e.target.value))
+                      update((c) => void (c[i] = { ...b, label: e.target.value }))
                     }
                   />
-                </ItemRow>
-              ))}
-              <button
-                type="button"
-                className="btn-outline !py-1"
-                onClick={() => onChange((x) => void x.subsections[i].clauses.push(""))}
-              >
-                <PlusIcon width={12} height={12} /> Clause
-              </button>
-            </div>
+                  <input
+                    className="input flex-1 !py-1.5"
+                    value={b.title}
+                    placeholder="Sub-section title (e.g. The President)"
+                    onChange={(e) =>
+                      update((c) => void (c[i] = { ...b, title: e.target.value }))
+                    }
+                  />
+                  <div className="flex gap-0.5">
+                    <button
+                      type="button"
+                      onClick={() => move(i, -1)}
+                      className="btn-ghost !px-1.5 !py-1 text-muted"
+                      aria-label="Move up"
+                    ><ArrowUpIcon /></button>
+                    <button
+                      type="button"
+                      onClick={() => move(i, 1)}
+                      className="btn-ghost !px-1.5 !py-1 text-muted"
+                      aria-label="Move down"
+                    ><ArrowDownIcon /></button>
+                    <button
+                      type="button"
+                      onClick={() => remove(i)}
+                      className="btn-ghost !px-1.5 !py-1 text-muted hover:text-rose-500"
+                      aria-label="Remove sub-section"
+                    ><CloseIcon width={14} height={14} /></button>
+                  </div>
+                </div>
+                <div className="mt-2 flex flex-col gap-1.5">
+                  {b.clauses.map((c, j) => (
+                    <ItemRow
+                      key={j}
+                      label="clause"
+                      onRemove={() =>
+                        update((arr) => void ((arr[i] as typeof b).clauses.splice(j, 1)))
+                      }
+                    >
+                      <textarea
+                        className="input min-h-[40px]"
+                        value={c}
+                        onKeyDown={tabKeyDown}
+                        onChange={(e) =>
+                          update((arr) =>
+                            void ((arr[i] as typeof b).clauses.splice(j, 1, e.target.value)))
+                        }
+                      />
+                    </ItemRow>
+                  ))}
+                  <button
+                    type="button"
+                    className="btn-outline !py-1 self-start"
+                    onClick={() =>
+                      update((arr) => void ((arr[i] as typeof b).clauses.push("")))
+                    }
+                  >
+                    <PlusIcon width={12} height={12} /> Clause
+                  </button>
+                </div>
+              </div>
+            )}
+            {/* Insert rail after each block */}
+            <InsertRail onClause={() => addClause(i + 1)} onSub={() => addSubsection(i + 1)} />
           </div>
         ))}
-        <button
-          type="button"
-          className="btn-outline self-start !py-1.5"
-          onClick={() =>
-            onChange((x) =>
-              x.subsections.push({ label: "", title: "", clauses: [] }),
-            )
-          }
-        >
-          <PlusIcon width={14} height={14} /> Sub-section
-        </button>
+
+        {content.length === 0 && (
+          <p className="text-xs text-muted py-2">No blocks yet — add a clause or sub-section above.</p>
+        )}
       </div>
+    </div>
+  );
+}
+
+/** A slim strip with two small buttons to insert a clause or a sub-section
+ *  at a specific position in the ordered content list. */
+function InsertRail({
+  onClause,
+  onSub,
+}: {
+  onClause: () => void;
+  onSub: () => void;
+}) {
+  return (
+    <div className="flex items-center gap-2 py-1">
+      <span className="h-px flex-1 bg-border" />
+      <button type="button" onClick={onClause} className="btn-ghost !px-2 !py-1 !text-xs text-muted">
+        <PlusIcon width={12} height={12} /> Clause
+      </button>
+      <button type="button" onClick={onSub} className="btn-ghost !px-2 !py-1 !text-xs text-muted">
+        <PlusIcon width={12} height={12} /> Sub-section
+      </button>
+      <span className="h-px flex-1 bg-border" />
     </div>
   );
 }
@@ -342,6 +490,7 @@ function ArticleEditor({
           <textarea
             className="input min-h-[44px]"
             value={c}
+            onKeyDown={tabKeyDown}
             onChange={(e) => onChange((x) => void x.intro.splice(i, 1, e.target.value))}
           />
         </ItemRow>
@@ -376,6 +525,7 @@ function ArticleEditor({
                 number: maxSec + 1,
                 title: "",
                 text: "",
+                content: [],
                 subsections: [],
                 clauses: [],
               }),
@@ -421,6 +571,7 @@ function AppendixEditor({
           <textarea
             className="input min-h-[44px]"
             value={c}
+            onKeyDown={tabKeyDown}
             onChange={(e) => onChange((x) => void x.clauses.splice(i, 1, e.target.value))}
           />
         </ItemRow>
@@ -453,6 +604,7 @@ function AnthemEditor({
       <textarea
         className="input mt-2 min-h-[120px] font-serif"
         value={an.lines.join("\n")}
+        onKeyDown={tabKeyDown}
         onChange={(e) =>
           onChange((x) => void (x.lines = e.target.value.split("\n")))
         }
@@ -531,6 +683,7 @@ function BillEditor({
       <textarea
         className="input mt-2"
         value={b.summary ?? ""}
+        onKeyDown={tabKeyDown}
         placeholder="One-line summary"
         onChange={(e) => onChange((x) => void (x.summary = e.target.value))}
       />
@@ -538,6 +691,7 @@ function BillEditor({
       <textarea
         className="input min-h-[120px] font-serif"
         value={b.body.join("\n")}
+        onKeyDown={tabKeyDown}
         onChange={(e) =>
           onChange((x) => void (x.body = e.target.value.split("\n")))
         }
@@ -629,37 +783,44 @@ function Editor({
         </button>
       </header>
 
-      {/* publish bar */}
-      <div className="card flex flex-wrap items-center justify-between gap-3 p-4">
-        <div className="min-w-0">
-          {status === "idle" && (
-            <p className="text-sm text-muted">
-              Review your changes, then publish.
-            </p>
-          )}
-          {status === "saving" && (
-            <p className="text-sm text-muted">Saving to GitHub…</p>
-          )}
-          {status === "done" && (
-            <p className="flex items-center gap-2 text-sm text-accent">
-              <CheckIcon width={16} height={16} /> {msg}
-            </p>
-          )}
-          {status === "error" && (
-            <p className="text-sm text-rose-500">{msg}</p>
-          )}
-        </div>
-        <div className="flex gap-2">
-          <button onClick={copyJSON} className="btn-outline">
-            Copy JSON
-          </button>
-          <button
-            onClick={publish}
-            disabled={status === "saving"}
-            className="btn-primary"
-          >
-            {status === "saving" ? "Publishing…" : "Publish"}
-          </button>
+      {/* sticky publish bar — stays visible while scrolling so you can
+          save without scrolling back to the top */}
+      <div className="sticky top-[3.25rem] z-30 -mx-4 rounded-none border-b bg-bg/85 px-4 py-2.5 backdrop-blur-xl md:-mx-6 md:rounded-2xl md:border md:px-5">
+        <div className="mx-auto flex max-w-3xl items-center justify-between gap-2">
+          <div className="flex min-w-0 items-center gap-2 text-sm">
+            {status === "idle" && (
+              <span className="truncate text-muted">Unsaved changes</span>
+            )}
+            {status === "saving" && (
+              <span className="flex items-center gap-1.5 text-muted">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-accent" /> Publishing…
+              </span>
+            )}
+            {status === "done" && (
+              <span className="flex items-center gap-1.5 text-accent">
+                <CheckIcon width={15} height={15} /> <span className="truncate">{msg || "Saved"}</span>
+              </span>
+            )}
+            {status === "error" && (
+              <span className="truncate text-rose-500">{msg}</span>
+            )}
+          </div>
+          <div className="flex shrink-0 gap-2">
+            <button
+              onClick={copyJSON}
+              className="btn-outline !px-3 !py-1.5"
+              title="Copy JSON to clipboard"
+            >
+              Copy
+            </button>
+            <button
+              onClick={publish}
+              disabled={status === "saving"}
+              className="btn-primary !px-3.5 !py-1.5"
+            >
+              {status === "saving" ? "Publishing…" : "Publish"}
+            </button>
+          </div>
         </div>
       </div>
 

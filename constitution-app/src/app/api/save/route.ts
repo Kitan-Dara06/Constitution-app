@@ -1,4 +1,6 @@
 import { createHash, timingSafeEqual } from "crypto";
+import { writeFileSync } from "fs";
+import { join } from "path";
 import type { NextRequest } from "next/server";
 
 export const runtime = "nodejs";
@@ -19,8 +21,8 @@ function checkPassword(pw: string, e: Env): boolean {
   const expected = e.hash;
   if (!salt || !expected) return false;
   const calc = createHash("sha256").update(salt + pw).digest("hex");
-  const a = Buffer.from(calc, "hex");
-  const b = Buffer.from(expected, "hex");
+  const a = new Uint8Array(Buffer.from(calc, "hex"));
+  const b = new Uint8Array(Buffer.from(expected, "hex"));
   if (a.length !== b.length) return false;
   try {
     return timingSafeEqual(a, b);
@@ -74,11 +76,32 @@ export async function POST(req: NextRequest) {
     return Response.json({ ok: true });
   }
 
-  // action === "save" → commit to GitHub
+  // action === "save"
   if (body.content == null) {
     return Response.json({ ok: false, error: "Missing content." }, { status: 400 });
   }
+
+  // ── 1. Always write to the local file in dev so Next.js hot-reloads ──
+  // In production this runs on Vercel (read-only filesystem) so we skip it
+  // and rely on the GitHub commit below to trigger a redeploy.
+  const isDev = process.env.NODE_ENV === "development";
+  if (isDev) {
+    try {
+      const filePath = join(process.cwd(), "data", "constitution.json");
+      writeFileSync(filePath, JSON.stringify(body.content, null, 2) + "\n", "utf8");
+    } catch {
+      /* non-fatal — GitHub path below may still work */
+    }
+  }
+
+  // ── 2. Commit to GitHub (works in both dev and prod when configured) ──
   if (!e.token || !e.owner || !e.repo) {
+    if (isDev) {
+      return Response.json({
+        ok: true,
+        note: "Saved locally. Restart the dev server (or just refresh) to see changes. Set GH_* env vars to also push to GitHub.",
+      });
+    }
     return Response.json(
       {
         ok: false,
