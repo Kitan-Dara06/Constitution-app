@@ -188,6 +188,13 @@ def main():
 
     while i < n:
         up = paras[i]["text"].upper()
+        # Stop at the back matter: everything after the last article belongs to
+        # the appendices / anthems / signatures blocks, not to the current
+        # article's last section (the docx has no section header there).
+        if up.startswith("APPENDIX") or is_anthem_start(paras[i]["text"]) \
+                or up.startswith("THIS 2019") or up.startswith("PRESIDENTIAL ASSENT"):
+            flush_article()
+            break
         m_art = ARTICLE_RE.match(up)
         if m_art:
             word = m_art.group(1).strip()
