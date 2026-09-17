@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   applicationName: "FUNAABSU Constitution",
   appleWebApp: { capable: true, statusBarStyle: "default", title: "FUNAABSU" },
   icons: {
-    icon: [{ url: "/logo.jpg", sizes: "447x447", type: "image/jpeg" }],
-    apple: [{ url: "/logo.jpg", sizes: "447x447" }],
+    icon: [{ url: "/logo.jpg", sizes: "400x331", type: "image/jpeg" }],
+    apple: [{ url: "/logo.jpg", sizes: "400x331" }],
   },
 };
 

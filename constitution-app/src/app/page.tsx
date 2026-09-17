@@ -14,9 +14,9 @@ export default function HomePage() {
         <img
           src="/banner.jpg"
           alt="FUNAABSU"
-          width={400}
-          height={331}
-          className="w-full max-w-sm rounded-2xl border bg-card object-contain p-2"
+          width={447}
+          height={447}
+          className="w-full max-w-xs rounded-2xl border bg-card object-contain p-2 sm:max-w-sm"
         />
         <span className="text-[0.7rem] font-semibold uppercase tracking-wider text-accent">
           Federal University of Agriculture, Abeokuta
