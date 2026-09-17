@@ -12,7 +12,6 @@ import {
   SettingsIcon,
   SunIcon,
   MoonIcon,
-  ScaleIcon,
 } from "@/components/icons";
 
 const TABS = [
@@ -42,8 +41,15 @@ export function Nav() {
       <header className="sticky top-0 z-40 border-b bg-bg/80 backdrop-blur-xl">
         <div className="mx-auto flex h-14 max-w-3xl items-center gap-3 px-4">
           <Link href="/" className="flex items-center gap-2.5">
-            <span className="grid h-8 w-8 place-items-center rounded-xl bg-accent text-accent-fg">
-              <ScaleIcon width={18} height={18} />
+            <span className="grid h-8 w-8 place-items-center overflow-hidden rounded-xl bg-white ring-1 ring-black/10 dark:ring-white/20">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/logo.jpg"
+                alt="FUNAABSU logo"
+                width={32}
+                height={32}
+                className="h-full w-full object-contain"
+              />
             </span>
             <span className="leading-tight">
               <span className="block text-[0.95rem] font-semibold tracking-tight">

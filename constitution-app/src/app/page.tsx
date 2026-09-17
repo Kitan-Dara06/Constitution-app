@@ -10,6 +10,14 @@ export default function HomePage() {
     <div className="flex flex-col gap-8">
       {/* Hero */}
       <section className="flex flex-col gap-3 pt-2">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/banner.jpg"
+          alt="FUNAABSU"
+          width={400}
+          height={331}
+          className="w-full max-w-sm rounded-2xl border bg-card object-contain p-2"
+        />
         <span className="text-[0.7rem] font-semibold uppercase tracking-wider text-accent">
           Federal University of Agriculture, Abeokuta
         </span>

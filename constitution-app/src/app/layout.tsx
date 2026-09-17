@@ -19,6 +19,10 @@ export const metadata: Metadata = {
     "The 2019 Revised Constitution of the Federal University of Agriculture, Abeokuta Student Union — a clean, offline-friendly reader.",
   applicationName: "FUNAABSU Constitution",
   appleWebApp: { capable: true, statusBarStyle: "default", title: "FUNAABSU" },
+  icons: {
+    icon: [{ url: "/logo.jpg", sizes: "447x447", type: "image/jpeg" }],
+    apple: [{ url: "/logo.jpg", sizes: "447x447" }],
+  },
 };
 
 export const viewport: Viewport = {
